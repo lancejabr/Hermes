@@ -102,6 +102,11 @@ class NowListenHereViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        sequence.pause()
+    }
+    
+    
     @IBAction func tapRecognized(sender: UIButton){
         if gamePaused {
             unpauseGame()
@@ -111,11 +116,11 @@ class NowListenHereViewController: UIViewController {
     }
     
     func pauseGame() {
-        saw1.setVolume(0, msec: 50)
-        glock.setVolume(1, msec: 50)
-        countMain.setVolume(0, msec: 50)
-        bassFrantic.setVolume(0, msec: 50)
-        bassCalm.setVolume(1, msec: 50)
+        saw1.setVolume(0, msec: 150)
+        glock.setVolume(1, msec: 150)
+        countMain.setVolume(0, msec: 150)
+        bassFrantic.setVolume(0, msec: 150)
+        bassCalm.setVolume(1, msec: 150)
         
         sequence.setTempo(0.6)
         
@@ -123,11 +128,11 @@ class NowListenHereViewController: UIViewController {
     }
     
     func unpauseGame() {
-        saw1.setVolume(0.33, msec: 50)
-        glock.setVolume(0, msec: 50)
-        countMain.setVolume(1, msec: 50)
-        bassFrantic.setVolume(1, msec: 50)
-        bassCalm.setVolume(0, msec: 50)
+        saw1.setVolume(0.33, msec: 150)
+        glock.setVolume(0, msec: 150)
+        countMain.setVolume(1, msec: 150)
+        bassFrantic.setVolume(1, msec: 150)
+        bassCalm.setVolume(0, msec: 150)
         
         sequence.setTempo(1)
         
@@ -142,19 +147,19 @@ class NowListenHereViewController: UIViewController {
     
     
     @IBAction func sawArrangement(sender: UIButton) {
-        piano.setVolume(0, msec: 30)
+        piano.setVolume(0, msec: 150)
         
-        saw1.setVolume(0.33, msec: 30)
-        saw2.setVolume(0.33, msec: 30)
-        saw3.setVolume(0.33, msec: 30)
+        saw1.setVolume(0.33, msec: 150)
+        saw2.setVolume(0.33, msec: 150)
+        saw3.setVolume(0.33, msec: 150)
     }
     
     @IBAction func pianoArrangement(sender: UIButton) {
-        piano.setVolume(1, msec: 30)
+        piano.setVolume(1, msec: 150)
         
-        saw1.setVolume(0, msec: 30)
-        saw2.setVolume(0, msec: 30)
-        saw3.setVolume(0, msec: 30)
+        saw1.setVolume(0, msec: 150)
+        saw2.setVolume(0, msec: 150)
+        saw3.setVolume(0, msec: 150)
     }
     
     

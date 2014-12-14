@@ -25,6 +25,8 @@ class ExamplePageViewController : UIPageViewController, UIPageViewControllerData
         
         examples.append(storyB.instantiateViewControllerWithIdentifier("Now Listen Here") as UIViewController)
         examples.append(storyB.instantiateViewControllerWithIdentifier("Chopper") as UIViewController)
+        examples.append(storyB.instantiateViewControllerWithIdentifier("Money Sings") as UIViewController)
+
         
         setViewControllers([examples.first!], direction: .Forward, animated: false) {finished in }
     }

@@ -1,0 +1,25 @@
+#N canvas 1177 104 483 280 10;
+#X obj -260 40 r \$0-notein;
+#X obj -260 62 unpack f f;
+#X obj -260 84 spigot;
+#X obj -275 112 f;
+#X obj -275 134 pack f 90;
+#X obj -275 16 r \$0-play-sound;
+#X msg -252 220 \;;
+#X obj -188 118 r \$0-set-throw;
+#X msg -187 140 add2 \$1-notein \, adddollar 1 \, adddollar 2 \, addsemi
+;
+#X msg -186 168 set \, addsemi;
+#X obj -89 49 r \$0-all-notes-off;
+#X obj -164 32 print play;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 2 0 3 1;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 5 0 3 0;
+#X connect 5 0 11 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 6 0;

@@ -225,8 +225,8 @@ class Sequence {
         seqPatch.sendList([level, msec], toReceiver: "volume")
     }
     
-    func setTempo(tempo: Float) {
-        seqPatch.sendFloat(tempo, toReceiver: "tempo")
+    func setTempo(tempo: Float, msec: Float = 300) {
+        seqPatch.sendList([tempo, msec], toReceiver: "tempo")
     }
     
     func setPitchOffset(halftones: Float) {

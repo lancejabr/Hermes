@@ -67,6 +67,7 @@
 #X msg 459 346 set \, addsemi \, add2 \$1-qCommand \, add2 tempo \,
 adddollar 1;
 #X msg 403 378;
+#X obj 293 136 line 1 1;
 #X connect 0 0 59 0;
 #X connect 1 0 6 0;
 #X connect 1 0 52 0;
@@ -105,7 +106,7 @@ adddollar 1;
 #X connect 35 1 36 0;
 #X connect 36 0 61 0;
 #X connect 38 0 40 0;
-#X connect 39 0 36 0;
+#X connect 39 0 62 0;
 #X connect 41 0 46 0;
 #X connect 41 0 47 0;
 #X connect 42 0 44 0;
@@ -127,3 +128,4 @@ adddollar 1;
 #X connect 59 1 50 0;
 #X connect 59 2 7 0;
 #X connect 60 0 61 0;
+#X connect 62 0 36 0;
