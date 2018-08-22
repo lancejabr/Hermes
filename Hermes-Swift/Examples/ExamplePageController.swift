@@ -8,7 +8,7 @@
 
 import UIKit
 
-let resourcePath = NSBundle.mainBundle().resourcePath!
+let resourcePath = Bundle.main.resourcePath!
 
 class ExamplePageViewController : UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
@@ -23,18 +23,18 @@ class ExamplePageViewController : UIPageViewController, UIPageViewControllerData
         
         let storyB = UIStoryboard(name: "Main", bundle: nil)
         
-        examples.append(storyB.instantiateViewControllerWithIdentifier("Now Listen Here") as UIViewController)
-        examples.append(storyB.instantiateViewControllerWithIdentifier("Chopper") as UIViewController)
-        examples.append(storyB.instantiateViewControllerWithIdentifier("Money Sings") as UIViewController)
+        examples.append(storyB.instantiateViewController(withIdentifier: "Now Listen Here") as UIViewController)
+        examples.append(storyB.instantiateViewController(withIdentifier: "Chopper") as UIViewController)
+        examples.append(storyB.instantiateViewController(withIdentifier: "Money Sings") as UIViewController)
 
         
-        setViewControllers([examples.first!], direction: .Forward, animated: false) {finished in }
+        setViewControllers([examples.first!], direction: .forward, animated: false) {finished in }
     }
     
 
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        for (i, currVC) in enumerate(examples) {
+        for (i, currVC) in examples.enumerated() {
             if currVC === viewController {
                 return i == 0 ? nil : examples[i-1]
             }
@@ -42,9 +42,9 @@ class ExamplePageViewController : UIPageViewController, UIPageViewControllerData
         return nil
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        for (i, currVC) in enumerate(examples) {
+        for (i, currVC) in examples.enumerated() {
             if currVC === viewController {
                 return i == examples.count-1 ? nil : examples[i+1]
             }

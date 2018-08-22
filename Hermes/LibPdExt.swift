@@ -9,29 +9,29 @@
 import Foundation
 
 enum PdAudioStatusSwift : Int {
-    case OK = 0, Error = -1, Changed = 1
+    case ok = 0, error = -1, changed = 1
 }
 
 extension PdFile {
     
     func sendBang(toReceiver receiver: String) {
-        PdBase.sendBangToReceiver(String(self.dollarZero) + "-" + receiver)
+        PdBase.sendBang(toReceiver: String(self.dollarZero) + "-" + receiver)
     }
     
-    func sendMessage(message: String, withArguments arguments: [AnyObject], toReceiver receiver: String) {
+    func sendMessage(_ message: String, withArguments arguments: [Any], toReceiver receiver: String) {
         PdBase.sendMessage(message, withArguments: arguments, toReceiver: String(self.dollarZero) + "-" + receiver)
     }
     
-    func sendList(list: [AnyObject], toReceiver receiver: String) {
+    func sendList(_ list: [Any], toReceiver receiver: String) {
         PdBase.sendList(list, toReceiver: String(self.dollarZero) + "-" + receiver)
     }
     
-    func sendSymbol(symbol: String, toReceiver receiver: String)  {
+    func sendSymbol(_ symbol: String, toReceiver receiver: String)  {
         PdBase.sendSymbol(symbol, toReceiver: String(self.dollarZero) + "-" + receiver)
     }
     
-    func sendFloat(float: Float, toReceiver receiver: String)  {
-        PdBase.sendFloat(float, toReceiver: String(self.dollarZero) + "-" + receiver)
+    func sendFloat(_ float: Float, toReceiver receiver: String)  {
+        PdBase.send(float, toReceiver: String(self.dollarZero) + "-" + receiver)
         
     }
     

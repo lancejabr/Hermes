@@ -18,7 +18,7 @@ class ChopperViewController : UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         
         // make a gesture recognizer to move the chopper
-        let panRec = UIPanGestureRecognizer(target: self, action: "panRecognized:")
+        let panRec = UIPanGestureRecognizer(target: self, action: #selector(ChopperViewController.panRecognized(_:)))
         chopper.addGestureRecognizer(panRec)
         
         //a blank block
@@ -49,24 +49,24 @@ class ChopperViewController : UIViewController, UIGestureRecognizerDelegate {
         heliSequence.setTempo(2)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         // start the effect and fade in
         heliSequence.setVolume(0, msec: 0)
         heliSequence.start()
         heliSequence.setVolume(1, msec: 500)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         // fade out and stop
         heliSequence.fadeOutAndStop(msec: 500)
     }
     
-    func panRecognized(recognizer : UIPanGestureRecognizer) {
+    @objc func panRecognized(_ recognizer : UIPanGestureRecognizer) {
         // move the helicopter with user's finger
-        chopper.center = recognizer.locationInView(view)
+        chopper.center = recognizer.location(in: view)
         
         // get the velocity of the drag and find the speed of the blades
-        let yVal = recognizer.velocityInView(view).y / view.frame.size.height * -0.6 + 2
+        let yVal = recognizer.velocity(in: view).y / view.frame.size.height * -0.6 + 2
         
         // change the speed of the blades
         heliSequence.setTempo(Float(yVal))

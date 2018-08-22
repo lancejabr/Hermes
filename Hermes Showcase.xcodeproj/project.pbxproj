@@ -226,39 +226,47 @@
 		757A2ECC19DCC45E0028E2BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 757A2ECA19DCC45E0028E2BE /* Main.storyboard */; };
 		757A2ECE19DCC45E0028E2BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 757A2ECD19DCC45E0028E2BE /* Images.xcassets */; };
 		757A2ED119DCC45E0028E2BE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 757A2ECF19DCC45E0028E2BE /* LaunchScreen.xib */; };
-		757A2EF219DCC4C60028E2BE /* libpd-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 757A2EEC19DCC46C0028E2BE /* libpd-ios.a */; };
 		757A2EF419DCC4CB0028E2BE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757A2EF319DCC4CB0028E2BE /* AudioToolbox.framework */; };
 		757A2EF619DCC4CE0028E2BE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757A2EF519DCC4CE0028E2BE /* AVFoundation.framework */; };
 		758A6F5E1A210F94006659BA /* Hermes.c in Sources */ = {isa = PBXBuildFile; fileRef = 758A6F5C1A210F94006659BA /* Hermes.c */; };
 		759D1C1E1A2ED7B4007A2B77 /* voice-pattern.pd in Resources */ = {isa = PBXBuildFile; fileRef = 759D1C1D1A2ED7B4007A2B77 /* voice-pattern.pd */; };
 		75D14C871A2D873700C72ADA /* sequence.pd in Resources */ = {isa = PBXBuildFile; fileRef = 75D14C861A2D873700C72ADA /* sequence.pd */; };
+		75EA0A752110280F003D365F /* libpd-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7528D1D52110259400C5C712 /* libpd-ios.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		757A2EEB19DCC46C0028E2BE /* PBXContainerItemProxy */ = {
+		7528D1D42110259400C5C712 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 757A2EE619DCC46C0028E2BE /* libpd.xcodeproj */;
+			containerPortal = 7528D1CD2110259300C5C712 /* libpd.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = "libpd-ios";
 		};
-		757A2EED19DCC46C0028E2BE /* PBXContainerItemProxy */ = {
+		7528D1D62110259400C5C712 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 757A2EE619DCC46C0028E2BE /* libpd.xcodeproj */;
+			containerPortal = 7528D1CD2110259300C5C712 /* libpd.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 119013AB1486450C00086F19;
 			remoteInfo = "libpd-osx";
 		};
-		757A2EF019DCC4C10028E2BE /* PBXContainerItemProxy */ = {
+		7528D1D82110259400C5C712 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 757A2EE619DCC46C0028E2BE /* libpd.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = "libpd-ios";
+			containerPortal = 7528D1CD2110259300C5C712 /* libpd.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 30C3D36D1FAA200100C67F08;
+			remoteInfo = "libpd-ios-multi";
+		};
+		7528D1DA2110259400C5C712 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7528D1CD2110259300C5C712 /* libpd.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 30C3D2FA1FAA1FCC00C67F08;
+			remoteInfo = "libpd-osx-multi";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7528D1CD2110259300C5C712 /* libpd.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpd.xcodeproj; path = libpd/libpd.xcodeproj; sourceTree = "<group>"; };
 		7531E3DC1A1431E000E3495F /* Hermes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hermes.swift; sourceTree = "<group>"; };
 		7531E3DD1A1431E000E3495F /* Hermes_Swift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Hermes_Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		7531E3DE1A1431E000E3495F /* LibPdExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibPdExt.swift; sourceTree = "<group>"; };
@@ -485,7 +493,6 @@
 		757A2ED019DCC45E0028E2BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		757A2EDB19DCC45E0028E2BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		757A2EDC19DCC45E0028E2BE /* Hermes_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hermes_SwiftTests.swift; sourceTree = "<group>"; };
-		757A2EE619DCC46C0028E2BE /* libpd.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpd.xcodeproj; path = "../../../../iOS Dev/pd-for-ios/libpd/libpd.xcodeproj"; sourceTree = "<group>"; };
 		757A2EF319DCC4CB0028E2BE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		757A2EF519DCC4CE0028E2BE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		758A6F5C1A210F94006659BA /* Hermes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Hermes.c; sourceTree = "<group>"; };
@@ -499,15 +506,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75EA0A752110280F003D365F /* libpd-ios.a in Frameworks */,
 				757A2EF619DCC4CE0028E2BE /* AVFoundation.framework in Frameworks */,
 				757A2EF419DCC4CB0028E2BE /* AudioToolbox.framework in Frameworks */,
-				757A2EF219DCC4C60028E2BE /* libpd-ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7528D1CE2110259300C5C712 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7528D1D52110259400C5C712 /* libpd-ios.a */,
+				7528D1D72110259400C5C712 /* libpd-osx.a */,
+				7528D1D92110259400C5C712 /* libpd-ios-multi.a */,
+				7528D1DB2110259400C5C712 /* libpd-osx-multi.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7531E3DB1A1431E000E3495F /* Hermes */ = {
 			isa = PBXGroup;
 			children = (
@@ -916,13 +934,14 @@
 		757A2EB819DCC45E0028E2BE = {
 			isa = PBXGroup;
 			children = (
-				757A2EE619DCC46C0028E2BE /* libpd.xcodeproj */,
+				7528D1CD2110259300C5C712 /* libpd.xcodeproj */,
 				7531E3DB1A1431E000E3495F /* Hermes */,
 				757A2EC319DCC45E0028E2BE /* Hermes-Swift */,
 				757A2ED919DCC45E0028E2BE /* Hermes-SwiftTests */,
 				757A2EC219DCC45E0028E2BE /* Products */,
 				757A2EF519DCC4CE0028E2BE /* AVFoundation.framework */,
 				757A2EF319DCC4CB0028E2BE /* AudioToolbox.framework */,
+				75EA0A742110280F003D365F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -972,13 +991,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		757A2EE719DCC46C0028E2BE /* Products */ = {
+		75EA0A742110280F003D365F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				757A2EEC19DCC46C0028E2BE /* libpd-ios.a */,
-				757A2EEE19DCC46C0028E2BE /* libpd-osx.a */,
 			);
-			name = Products;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -995,7 +1012,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				757A2EF119DCC4C10028E2BE /* PBXTargetDependency */,
 			);
 			name = "Hermes Showcase";
 			productName = "Hermes-Swift";
@@ -1014,6 +1030,7 @@
 					757A2EC019DCC45E0028E2BE = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = CHN786DUCG;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -1030,8 +1047,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 757A2EE719DCC46C0028E2BE /* Products */;
-					ProjectRef = 757A2EE619DCC46C0028E2BE /* libpd.xcodeproj */;
+					ProductGroup = 7528D1CE2110259300C5C712 /* Products */;
+					ProjectRef = 7528D1CD2110259300C5C712 /* libpd.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1042,18 +1059,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		757A2EEC19DCC46C0028E2BE /* libpd-ios.a */ = {
+		7528D1D52110259400C5C712 /* libpd-ios.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libpd-ios.a";
-			remoteRef = 757A2EEB19DCC46C0028E2BE /* PBXContainerItemProxy */;
+			remoteRef = 7528D1D42110259400C5C712 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		757A2EEE19DCC46C0028E2BE /* libpd-osx.a */ = {
+		7528D1D72110259400C5C712 /* libpd-osx.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libpd-osx.a";
-			remoteRef = 757A2EED19DCC46C0028E2BE /* PBXContainerItemProxy */;
+			remoteRef = 7528D1D62110259400C5C712 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7528D1D92110259400C5C712 /* libpd-ios-multi.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libpd-ios-multi.a";
+			remoteRef = 7528D1D82110259400C5C712 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7528D1DB2110259400C5C712 /* libpd-osx-multi.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libpd-osx-multi.a";
+			remoteRef = 7528D1DA2110259400C5C712 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1300,14 +1331,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		757A2EF119DCC4C10028E2BE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "libpd-ios";
-			targetProxy = 757A2EF019DCC4C10028E2BE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		757A2ECA19DCC45E0028E2BE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1415,7 +1438,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Hermes Showcase";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hermes/Hermes_Swift-Bridging-Header.h";
-				USER_HEADER_SEARCH_PATHS = "\"/Users/lancejabr/iOS Dev/pd-for-ios/libpd/**\"";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				USER_HEADER_SEARCH_PATHS = "\"libpd/objc\"";
 			};
 			name = Debug;
 		};
@@ -1427,7 +1452,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Hermes Showcase";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hermes/Hermes_Swift-Bridging-Header.h";
-				USER_HEADER_SEARCH_PATHS = "\"/Users/lancejabr/iOS Dev/pd-for-ios/libpd/**\"";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				USER_HEADER_SEARCH_PATHS = "\"libpd/objc\"";
 			};
 			name = Release;
 		};

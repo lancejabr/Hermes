@@ -102,12 +102,12 @@ class NowListenHereViewController: UIViewController {
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         sequence.pause()
     }
     
     
-    @IBAction func tapRecognized(sender: UIButton){
+    @IBAction func tapRecognized(_ sender: UIButton){
         if gamePaused {
             unpauseGame()
         } else {
@@ -140,42 +140,43 @@ class NowListenHereViewController: UIViewController {
         
     }
     
-    @IBAction func tempo(sender: UISlider) {
+    @IBAction func tempo(_ sender: UISlider) {
         sequence.setTempo(sender.value)
         
     }
     
+    let fadeTime: Float = 300.0
     
-    @IBAction func sawArrangement(sender: UIButton) {
-        piano.setVolume(0, msec: 150)
+    @IBAction func sawArrangement(_ sender: UIButton) {
+        piano.setVolume(0, msec: fadeTime)
         
-        saw1.setVolume(0.33, msec: 150)
-        saw2.setVolume(0.33, msec: 150)
-        saw3.setVolume(0.33, msec: 150)
+        saw1.setVolume(0.33, msec: fadeTime)
+        saw2.setVolume(0.33, msec: fadeTime)
+        saw3.setVolume(0.33, msec: fadeTime)
     }
     
-    @IBAction func pianoArrangement(sender: UIButton) {
-        piano.setVolume(1, msec: 150)
+    @IBAction func pianoArrangement(_ sender: UIButton) {
+        piano.setVolume(1, msec: fadeTime)
         
-        saw1.setVolume(0, msec: 150)
-        saw2.setVolume(0, msec: 150)
-        saw3.setVolume(0, msec: 150)
+        saw1.setVolume(0, msec: fadeTime)
+        saw2.setVolume(0, msec: fadeTime)
+        saw3.setVolume(0, msec: fadeTime)
     }
     
     
     var stopped = false
     
-    @IBAction func play(sender: AnyObject) {
+    @IBAction func play(_ sender: AnyObject) {
         stopped ? sequence.start() : sequence.unpause()
         stopped = false
     }
     
-    @IBAction func pause(sender: AnyObject) {
+    @IBAction func pause(_ sender: AnyObject) {
         sequence.pause()
         stopped = false
     }
     
-    @IBAction func stop(sender: AnyObject) {
+    @IBAction func stop(_ sender: AnyObject) {
         sequence.stop()
         stopped = true
     }

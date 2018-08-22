@@ -8,7 +8,7 @@
 
 import Foundation
 
-let patchDirectoryPath = NSBundle.mainBundle().resourcePath!
+let patchDirectoryPath = Bundle.main.resourcePath!
 
 class Event {
     var absoluteMSec : Float = 0.0
@@ -33,37 +33,37 @@ class VoiceObject {
     
     init(patchNamed name: String, atPath path: String) {
         
-        linkPatch = PdFile.openFileNamed("instrument-link.pd", path: patchDirectoryPath) as PdFile
+        linkPatch = PdFile.openNamed("instrument-link.pd", path: patchDirectoryPath) as! PdFile
         
         // make the instrument
-        if let newInstrument = PdFile.openFileNamed(name, path: path) as? PdFile {
+        if let newInstrument = PdFile.openNamed(name, path: path) as? PdFile {
             instrumentPatch = newInstrument
         } else {
             // or default to a backup
-            instrumentPatch = PdFile.openFileNamed("buzz.pd", path: patchDirectoryPath) as PdFile
+            instrumentPatch = PdFile.openNamed("buzz.pd", path: patchDirectoryPath) as! PdFile
         }
         
         // tell the instrument patch to throw to the corrent instrument link
         instrumentPatch.sendMessage("set", withArguments: [String(linkPatch.dollarZero) + "-sigin"], toReceiver: "set-throw")
     }
     
-    func setVolume(level: Float, msec: Float = 300) {
+    func setVolume(_ level: Float, msec: Float = 300) {
         linkPatch.sendList([level, msec], toReceiver: "volume")
     }
     
-    func setPanning(level: Float, msec: Float = 300) {
+    func setPanning(_ level: Float, msec: Float = 300) {
         linkPatch.sendList([level, msec], toReceiver: "pan")
     }
 }
 
 
 class VoicePattern {
-    let vpPatch = PdFile.openFileNamed("voice-pattern.pd", path: patchDirectoryPath) as PdFile
+    let vpPatch = PdFile.openNamed("voice-pattern.pd", path: patchDirectoryPath) as! PdFile
     
     var events = [Event]()
     
     var voiceObjects = [VoiceObject]()
-    func addVoiceObject(voiceObj: VoiceObject) {
+    func addVoiceObject(_ voiceObj: VoiceObject) {
         // add it to the storage
         voiceObjects.append(voiceObj)
         
@@ -86,12 +86,12 @@ class VoicePattern {
         let masterTrack = midiFile.masterTrack.move()
         
         // keep track of the current msec mark
-        var currMSec = 0
+//        var currMSec = 0
         
         for i in 0..<Int(masterTrack.eventCount) {
             // get the event and its data
-            let midiEvent = masterTrack.events[i].move()
-            let eventData = UnsafeMutablePointer<CInt>(midiEvent.data)
+            let midiEvent = masterTrack.events[i]!.move()
+            let eventData = midiEvent.data.assumingMemoryBound(to: CInt.self)
             
             // if the event is a tempo setting, change the msec per quarter
             if midiEvent.type == 4 {
@@ -111,26 +111,27 @@ class VoicePattern {
             }
             
             // update the new current time mark
-            currMSec = Int(midiEvent.absoluteTicks)
+//            currMSec = Int(midiEvent.absoluteTicks)
             // free memory
-            eventData.destroy()
+//            eventData.destroy()
+            eventData.deallocate()
         }
     }
     
-    func setVolume(level: Float, msec: Float = 300) {
+    func setVolume(_ level: Float, msec: Float = 300) {
         vpPatch.sendList([level, msec], toReceiver: "volume")
     }
     
-    func setPitched(pitched: Bool) {
+    func setPitched(_ pitched: Bool) {
         vpPatch.sendFloat(pitched ? 1 : 0, toReceiver: "pitched")
     }
 }
 
 class Block {
-    let blockPatch = PdFile.openFileNamed("block.pd", path: patchDirectoryPath) as PdFile
+    let blockPatch = PdFile.openNamed("block.pd", path: patchDirectoryPath) as! PdFile
     
     var vPatterns = [VoicePattern]()
-    func addVoicePattern(vp: VoicePattern) {
+    func addVoicePattern(_ vp: VoicePattern) {
         // add the voice pattern
         vPatterns.append(vp)
         
@@ -149,24 +150,25 @@ class Block {
         if readyToPlay {return}
         
         var allNotes = [Event]()
-        func insertNewEvents(newEvents: [Event], inout intoArray array: [Event]) {
+        func insertNewEvents(_ newEvents: [Event], intoArray array: inout [Event]) {
             // the current insertion point
             var currIdx = 0
             
             // check where each event goes
             for event in newEvents {
                 // otherwise find where this event should go
-                while currIdx < array.count && event.absoluteMSec >= array[currIdx].absoluteMSec { currIdx++ }
+                while currIdx < array.count && event.absoluteMSec >= array[currIdx].absoluteMSec { currIdx += 1 }
                 
                 // check if we are inserting past the end...
                 if currIdx == array.count {
                     array.append(event)
-                    currIdx++
+                    currIdx += 1
                     continue
                 }
                 
                 // ...or insert it there (increment again)
-                array.insert(event, atIndex: currIdx++)
+                array.insert(event, at: currIdx)
+                currIdx += 1
             }
         }
 
@@ -198,7 +200,7 @@ class Block {
 }
 
 class Sequence {
-    let seqPatch = PdFile.openFileNamed("sequence.pd", path: patchDirectoryPath) as PdFile
+    let seqPatch = PdFile.openNamed("sequence.pd", path: patchDirectoryPath) as! PdFile
     
     func start() {        
         stop()
@@ -221,27 +223,27 @@ class Sequence {
         seqPatch.sendFloat(msec, toReceiver: "fadeout")
     }
     
-    func setVolume(level: Float, msec: Float = 300) {
+    func setVolume(_ level: Float, msec: Float = 300) {
         seqPatch.sendList([level, msec], toReceiver: "volume")
     }
     
-    func setTempo(tempo: Float, msec: Float = 300) {
+    func setTempo(_ tempo: Float, msec: Float = 300) {
         seqPatch.sendList([tempo, msec], toReceiver: "tempo")
     }
     
-    func setPitchOffset(halftones: Float) {
+    func setPitchOffset(_ halftones: Float) {
 //        for track in tracks.values {
 //            track.trackPatch.sendFloat(halftones, toReceiver: "pitch-offset")
 //        }
     }
     
-    func setContinue(cntue: Bool) {
+    func setContinue(_ cntue: Bool) {
         seqPatch.sendFloat(cntue ? 1 : 0, toReceiver: "continue")
     }
     
     
     var blocks = [Block]()
-    func playBlockNext(nextBlock: Block) {
+    func playBlockNext(_ nextBlock: Block) {
         // retain the block sothe patch stays open
         blocks.append(nextBlock)
         nextBlock.readyForPlaying()
@@ -252,7 +254,7 @@ class Sequence {
 
 class HermesPlayer {
     
-    let masterPatch = PdFile.openFileNamed("master.pd", path: patchDirectoryPath) as PdFile
+    let masterPatch = PdFile.openNamed("master.pd", path: patchDirectoryPath) as! PdFile
     
     var sequences = [String : Sequence]()
     
@@ -262,12 +264,12 @@ class HermesPlayer {
     let dispatcher = PdDispatcher()
     
     init() {
-        let pdStatus = audioController.configureAmbientWithSampleRate(44100, numberChannels: 2, mixingEnabled: true)
-        if Int(pdStatus.value) != PdAudioStatusSwift.OK.rawValue {
-            println("Audio Controller configuration failed")
+        let pdStatus = audioController?.configureAmbient(withSampleRate: 44100, numberChannels: 2, mixingEnabled: true)
+        if pdStatus!.rawValue != PdAudioStatusSwift.ok.rawValue {
+            print("Audio Controller configuration failed")
         }
         
-        audioController.active = true
+        audioController?.isActive = true
         
         PdBase.setDelegate(dispatcher)
     }

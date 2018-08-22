@@ -1,4 +1,4 @@
-#N canvas 104 42 965 982 10;
+#N canvas 169 23 965 982 10;
 #X obj 630 199 r \$0-next-block;
 #X obj 627 119 r \$0-reset-blocks;
 #X obj 425 151 spigot;
@@ -68,6 +68,7 @@
 adddollar 1;
 #X msg 403 378;
 #X obj 293 136 line 1 1;
+#X text 431 381 sends messages to current block;
 #X connect 0 0 59 0;
 #X connect 1 0 6 0;
 #X connect 1 0 52 0;

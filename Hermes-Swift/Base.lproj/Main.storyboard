@@ -1,10 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vE1-cC-E5H">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vE1-cC-E5H">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Example Page View Controller-->
@@ -24,20 +29,20 @@
                         <viewControllerLayoutGuide type="bottom" id="Ezp-VD-eDQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tKe-n6-dqu">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGg-HA-RX9">
-                                <rect key="frame" x="256" y="28" width="88" height="30"/>
+                                <rect key="frame" x="144.5" y="28" width="86" height="30"/>
                                 <state key="normal" title="Pause Game">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="tapRecognized:" destination="3Oo-h5-GJ2" eventType="touchUpInside" id="KSb-93-4qz"/>
                                 </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5BO-Fj-4mB">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="TBM-9g-GVt"/>
                                     <barButtonItem title="Item" systemItem="play" id="N5X-W4-OvJ">
@@ -61,31 +66,47 @@
                                 </items>
                             </toolbar>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="HrM-Bd-JV3">
-                                <rect key="frame" x="14" y="512" width="572" height="31"/>
+                                <rect key="frame" x="14" y="579" width="347" height="31"/>
                                 <connections>
                                     <action selector="tempo:" destination="3Oo-h5-GJ2" eventType="valueChanged" id="Drj-xk-Lkr"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSW-4L-cty">
-                                <rect key="frame" x="285" y="101" width="30" height="30"/>
+                                <rect key="frame" x="172.5" y="101" width="30" height="30"/>
                                 <state key="normal" title="Saw">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="sawArrangement:" destination="3Oo-h5-GJ2" eventType="touchUpInside" id="B2a-pf-oJ5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0m-bZ-Qb0">
-                                <rect key="frame" x="281" y="139" width="39" height="30"/>
+                                <rect key="frame" x="169" y="139" width="38" height="30"/>
                                 <state key="normal" title="Piano">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="pianoArrangement:" destination="3Oo-h5-GJ2" eventType="touchUpInside" id="9Zw-UU-WfJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4K-H3-WSU">
+                                <rect key="frame" x="16" y="232" width="343" height="339"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="339" id="J50-jw-KLZ"/>
+                                </constraints>
+                                <string key="text">The contols below start and stop the engine, and the slider adjusts the tempo.
+
+Click “saw” or “piano” to change the instrument playing the music. Notice that the music is continuous even though the arrangement changes.
+
+Click “pause game” to simulate the user pausing the game. This illustrates how a composer may alter the arrangement of the music in a real world scenario. Again, the musical context is continuous even though the energy changes.
+
+Swipe for the next example</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="BSW-4L-cty" firstAttribute="top" secondItem="xGg-HA-RX9" secondAttribute="bottom" constant="43" id="Gvr-om-MDi"/>
                             <constraint firstItem="Ezp-VD-eDQ" firstAttribute="top" secondItem="5BO-Fj-4mB" secondAttribute="bottom" id="LAW-mj-Nix"/>
@@ -96,15 +117,18 @@
                             <constraint firstItem="5BO-Fj-4mB" firstAttribute="top" secondItem="HrM-Bd-JV3" secondAttribute="bottom" constant="14" id="UYn-jl-vI5"/>
                             <constraint firstAttribute="width" secondItem="5BO-Fj-4mB" secondAttribute="width" id="Wzb-w3-JK5"/>
                             <constraint firstItem="q0m-bZ-Qb0" firstAttribute="top" secondItem="BSW-4L-cty" secondAttribute="bottom" constant="8" id="Xlq-AS-R9I"/>
+                            <constraint firstAttribute="trailing" secondItem="Q4K-H3-WSU" secondAttribute="trailing" constant="16" id="bfN-mZ-1gT"/>
                             <constraint firstItem="HrM-Bd-JV3" firstAttribute="trailing" secondItem="tKe-n6-dqu" secondAttribute="trailingMargin" id="cY3-Gr-Say"/>
                             <constraint firstItem="HrM-Bd-JV3" firstAttribute="leading" secondItem="tKe-n6-dqu" secondAttribute="leadingMargin" id="evD-jz-MgI"/>
                             <constraint firstAttribute="centerX" secondItem="5BO-Fj-4mB" secondAttribute="centerX" id="ges-wa-L7q"/>
+                            <constraint firstItem="Q4K-H3-WSU" firstAttribute="leading" secondItem="tKe-n6-dqu" secondAttribute="leading" constant="16" id="nJQ-mX-OMa"/>
+                            <constraint firstItem="HrM-Bd-JV3" firstAttribute="top" secondItem="Q4K-H3-WSU" secondAttribute="bottom" constant="8" id="rgh-1d-Xwh"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ha-Nx-igh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="-31"/>
+            <point key="canvasLocation" x="925.60000000000002" y="-31.03448275862069"/>
         </scene>
         <!--Chopper View Controller-->
         <scene sceneID="MIf-Ju-iix">
@@ -115,39 +139,55 @@
                         <viewControllerLayoutGuide type="bottom" id="PSc-CJ-Cxh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="N3A-1W-qXV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coud_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="aGy-hn-cer">
                                 <rect key="frame" x="0.0" y="116" width="155" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coud_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gkj-0s-HaW">
                                 <rect key="frame" x="248" y="235" width="155" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coud_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="k2U-HE-oO5">
                                 <rect key="frame" x="150" y="-20" width="155" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coud_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="AeU-JG-bTq">
                                 <rect key="frame" x="150" y="462" width="155" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coud_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="XM1-H7-50V">
                                 <rect key="frame" x="278" y="71" width="155" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVh-aa-5B4">
+                                <rect key="frame" x="16" y="87" width="343" height="81.5"/>
+                                <string key="text">A sound design example. The sound of the helicopter blade is modeled in a Pd patch. If you drag the coptor up and down, you can notice the speed of the rotors change.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cartoon-helicopter-7.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wwm-ba-R1C">
-                                <rect key="frame" x="150" y="131" width="300" height="337"/>
+                                <rect key="frame" x="94" y="228" width="187.5" height="211"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Wwm-ba-R1C" secondAttribute="height" multiplier="186:209" id="Nc9-aF-7ag"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coud_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gox-zG-2Yq">
                                 <rect key="frame" x="44" y="340" width="155" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.82787346117424243" green="0.90801077178030298" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.79088044166564941" green="0.88317251205444336" blue="0.99949562549591064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="IVh-aa-5B4" secondAttribute="trailing" constant="16" id="AyD-he-9zu"/>
+                            <constraint firstItem="IVh-aa-5B4" firstAttribute="top" secondItem="PI6-7r-tmM" secondAttribute="bottom" constant="67" id="BzK-Dk-B4o"/>
                             <constraint firstAttribute="centerX" secondItem="Wwm-ba-R1C" secondAttribute="centerX" id="bfo-63-QMg"/>
                             <constraint firstAttribute="centerY" secondItem="Wwm-ba-R1C" secondAttribute="centerY" id="cur-ld-1H2"/>
+                            <constraint firstItem="IVh-aa-5B4" firstAttribute="leading" secondItem="N3A-1W-qXV" secondAttribute="leading" constant="16" id="hNz-yg-FTL"/>
                             <constraint firstAttribute="width" secondItem="Wwm-ba-R1C" secondAttribute="width" multiplier="2" id="lDg-fi-tgM"/>
                         </constraints>
                     </view>
@@ -157,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iuH-Vz-EaG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="288" y="632"/>
+            <point key="canvasLocation" x="287.19999999999999" y="631.93403298350825"/>
         </scene>
         <!--Money Sings View Controller-->
         <scene sceneID="7AL-5y-FX8">
@@ -168,14 +208,26 @@
                         <viewControllerLayoutGuide type="bottom" id="PNZ-Tm-uu9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mS6-Uy-no2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coin.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="kWF-Hi-Adm">
                                 <rect key="frame" x="36" y="52" width="71" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collect the coin by tapping on the screen. Notice that the bell sound effect always fits with the chord of the soundtrack." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66A-Lo-WC6">
+                                <rect key="frame" x="16" y="402" width="343" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="66A-Lo-WC6" firstAttribute="leading" secondItem="mS6-Uy-no2" secondAttribute="leading" constant="16" id="PCY-xV-wqF"/>
+                            <constraint firstItem="PNZ-Tm-uu9" firstAttribute="top" secondItem="66A-Lo-WC6" secondAttribute="bottom" constant="204" id="Pkl-rB-QYC"/>
+                            <constraint firstAttribute="trailing" secondItem="66A-Lo-WC6" secondAttribute="trailing" constant="16" id="kRc-DR-0Dd"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="coinView" destination="kWF-Hi-Adm" id="K4g-Qh-ynM"/>
@@ -183,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Wr-Za-jW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="632"/>
+            <point key="canvasLocation" x="925.60000000000002" y="631.93403298350825"/>
         </scene>
     </scenes>
     <resources>

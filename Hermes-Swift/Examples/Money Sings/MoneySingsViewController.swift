@@ -64,7 +64,7 @@ class MoneySingsViewController : UIViewController {
         sequence.playBlockNext(block)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         sequence.setVolume(1, msec: 0)
@@ -72,20 +72,19 @@ class MoneySingsViewController : UIViewController {
         sequence.start()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sequence.fadeOutAndStop(msec: 300)
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        super.touchesBegan(touches, withEvent: event)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         
         // when there is a touch, play a bell sound
         MFX.instrumentPatch.sendBang(toReceiver: "play-sound")
         
         coinView.center = CGPoint(x: CGFloat(arc4random_uniform(100))/100*view.bounds.size.width, y: CGFloat(arc4random_uniform(100))/100*view.bounds.size.height)
     }
-    
     
     @IBOutlet var coinView : UIImageView!
     
